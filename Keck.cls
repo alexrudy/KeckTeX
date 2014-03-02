@@ -16,21 +16,28 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage[font={small}]{caption}
+
 % Graphics Packages
 \RequirePackage{graphicx}
 \RequirePackage{multicol}
+\RequirePackage{setspace}
 
-% Text and References
+% Text Packages
 \RequirePackage{tabularx}
 \RequirePackage{array}
 \RequirePackage[compact]{titlesec}
 \RequirePackage{xspace}
-
+\RequirePackage[normalem]{ulem}
+\RequirePackage{xltxtra}
 \RequirePackage{url}
+
+% Reference Packages
 \RequirePackage{natbib}
 \RequirePackage{multibib}
-\RequirePackage{setspace}
-\RequirePackage{xltxtra}
+
+% Utilities
+\RequirePackage{datetime}
+\usdate
 
 %--- LAYOUT COMMANDS ---%
 \geometry{letterpaper} %Paper Size
@@ -60,6 +67,7 @@
 
 \newcommand{\gotitle}{}
 \newcommand{\gopi}{}
+\newcommand{\gocoi}{}
 \newcommand{\goauthor}{}
 \newcommand{\goproposalnumber}{}
 \newcommand{\gorequest}{}
@@ -99,7 +107,7 @@
 \renewcommand{\headrulewidth}{0 pt}
 \renewcommand{\footrulewidth}{0 pt}
 
-\DeclareOption{edit}{\lfoot{\color{red}\today}\rfoot{\color{red}Prepared by \goauthor}}
+\DeclareOption{edit}{\rfoot{\color{red}Typset with \XeLaTeX\ \today\ at \currenttime}\lfoot{\color{red}Prepared by \goauthor}}
 \ProcessOptions
 
 \setlength{\parindent}{0pt}
