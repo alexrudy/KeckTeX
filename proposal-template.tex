@@ -1,0 +1,145 @@
+%!TEX TS-program = xelatex
+% Use the Keck document class, which is based on the 'article' document class.
+\documentclass[edit]{Keck}
+% The 'edit' option (\documentclass[edit]{Keck}) will show the author name 
+% and some typesetting information at the bottom of each page.
+% I use it for printing draft copies out and keeping track of them.
+
+% If you want to change the font, uncomment this line:
+% \setromanfont{Palatino}
+% You can use any font readily accessible to the XeLaTeX system on your computer.
+
+%---- ADD PERSONAL PACKAGES HERE ----%
+
+%---- META-DATA INFORMATION ----%
+% Set up for Metadata for the Keck Proposal
+% End your commands with the \xspace command to get proper spacing when you use them in text.
+% If you use \xspace, then you can use these commands in your proposal text to make your life easier.
+\renewcommand{\gotitle}{My Awesome Science Idea\xspace} %Your proposal title will appear at the top of each page.
+\renewcommand{\gopi}{Professor Z\xspace}                % The PI will appear at the top of each page as well.
+\renewcommand{\gocoi}{Last F and OtherLast F}           % List collaborators like you would in BibTeX
+\renewcommand{\goauthor}{Graduate Student\xspace}       % Put the current author's name here. This only appears when using the 'edit' option.
+\renewcommand{\goproposalnumber}{20YYA\_U\#\#\#INST}    % Your proposal number goes here.
+\renewcommand{\gorequest}{50 nights\xspace}             % Your total time request will appear at the top of each page.
+\renewcommand{\goinstrument}{KECK-CAM\xspace}    % Instrument requested goes here.
+\renewcommand{\gosemester}{20YYA\xspace}                % Enter the proposal semester here. 
+
+% Some of my personal favorite commands are here, for handy use.
+\newcommand{\unit}[1]{\ensuremath \;\mathrm{#1}}
+\newcommand*{\rfrac}[2]{\ensuremath {}^{#1}\!/_{#2}}
+
+\newcommand{\arcsec}{\ensuremath {}^{\prime\prime}}
+\newcommand{\arcmin}{\ensuremath {}^{\prime}}
+
+%--- DOCUMENT ---
+\begin{document}
+
+% These are the headings for the "reqiured" parts.
+\section{Scientific Justification} % (fold)
+\label{sec:scientific_justification}
+
+From the instructions: ``Attach a clear, up-to-date discussion of the scientific goals of the proposed observations, including what new science will be learned, its overall astrophysical significance, and how it relates to past work in the field. Please limit the text to two pages."
+
+% section scientific_justification (end)
+\pagebreak[4]
+\subsection{Progress to Date} % (fold)
+\label{sub:progress_to_date}
+
+From the instructions: ``Up to one additional page describing progress to date should be included if this is a resubmission."
+
+% subsection progress_to_date (end)
+\newpage
+
+\subsection{Figures for Scientific Justification} % (fold)
+\label{sub:figures_for_scientific_justification}
+From the instructions ``up to two additional pages for figures and references.''
+
+This \XeLaTeX document has been modified to squeeze as many figures on to a page as is reasonably possible, you should find it well behaved in that way.
+
+% subsection figures_for_scientific_justification (end)
+\subsection{References} % (fold)
+\label{sub:references}
+
+Cite your references as usual, with natbib, in the text. They will appear here in a two-column short reference format to save on space. If you don't know about natbib, look it up here: \url{http://www.ctan.org/pkg/natbib}.
+
+\begin{multicols}{2}
+\bibliography{mybib} % Replace this with the name of your bibliography.
+\end{multicols}
+% subsection references (end)
+
+\clearpage
+\section{Technical Remarks} % (fold)
+\label{sec:technical_remarks}
+
+\subsection{Targets and Exposures} % (fold)
+\label{sub:targets_and_exposures}
+
+Specify targets or fields and their coordinates, magnitudes (if known), exposure times, and justification for lunar phase and number of requested nights.
+
+% subsection targets_and_exposures (end)
+\subsection{Backup Program} % (fold)
+\label{sub:backup_program}
+
+Provide a short abstract of backup program(s) for poor observing conditions.
+
+% subsection backup_program (end)
+\subsection{Supplementary Observations} % (fold)
+\label{sub:supplementary_observations}
+
+If supplementary observations from other observatories (including Lick or space) are needed, please describe. Specify how essential are the other data for completion of program. Make clear the role of non-UC collaborators and list any of their time at other observatories that may be part of this project.
+
+% subsection supplementary_observations (end)
+\subsection{Status of Previously Approved Keck Programs} % (fold)
+\label{sub:status_of_previously_approved_keck_programs}
+
+Review status of previously approved programs, including Title, PI, number of allocated nights, status of data and analysis, and an estimated time to publication.
+
+% subsection status_of_previously_approved_keck_programs (end)
+% section technical_remarks (end)
+
+%%%%%%%%%%%%%%%%%%%%%
+% OPTIONAL SECTIONS %
+%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+The following are optional, but highly recommended:
+
+\section{Path to Science from Observations} % (fold)
+\label{sec:path_to_science_from_observations}
+
+Explain briefly the path from observations to the science, including plans for how the data will be taken, reduced, and analyzed. If theoretical models or other data are needed, specify how will these be acquired.
+
+% section path_to_science_from_observations (end)
+
+\section{Technical Concerns} % (fold)
+\label{sec:technical_concerns}
+
+
+% section technical_concerns (end)
+
+\section{Experience and Publications} % (fold)
+\label{sec:experience_and_publications}
+
+Brief account of experience of proposer(s) with instrument and science. Please provide up to a one page list of publications relevant to proposal. Mark those using Keck or Lick data with an asterisk (*). To mark references with the asterix in TeX, you can add the asterix to the BibTeX notes field. A future version will allow you to set a BibTeX variable for Keck data.
+
+% subsection experience (end)
+\subsection{Related and recent peer-reviewed publications} % (fold)
+\label{sub:related_and_recent_peer_reviewed_publications}
+
+% Author1
+\nocitepub{citekey,citekey}
+
+% Author2
+\nocitepub{citekey,citekey}
+
+
+\bibliographypub{mybib,pubib}
+% subsection related_and_recent_peer_reviewed_publications (end)
+% section experience_and_publications (end)
+\section{Resources and Publication Timescale} % (fold)
+\label{sec:resources_and_publication_timescale}
+
+Please describe what resources such as computing and personnel and grant funds will be applied to this project. What is the expected timescale for publications?
+
+% section resources_and_publication_timescale (end)
+\end{document}
