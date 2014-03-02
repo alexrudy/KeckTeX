@@ -62,7 +62,7 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 %---- XeLaTeX COMMANDS ---%
-\setromanfont{Palatino}
+\setromanfont[Ligatures=TeX]{Palatino}
 \setmonofont[Scale=MatchLowercase]{Monaco}
 
 \newcommand{\gotitle}{}
