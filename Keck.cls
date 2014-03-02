@@ -99,7 +99,7 @@
 \renewcommand{\headrulewidth}{0 pt}
 \renewcommand{\footrulewidth}{0 pt}
 
-\DeclareOption{edit}{\lfoot{\today}\rfoot{\goauthor}}
+\DeclareOption{edit}{\lfoot{\color{red}\today}\rfoot{\color{red}Prepared by \goauthor}}
 \ProcessOptions
 
 \setlength{\parindent}{0pt}
