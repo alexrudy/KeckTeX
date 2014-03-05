@@ -118,8 +118,8 @@
 \renewcommand{\bibsection}{}
 \renewcommand{\bibfont}{\small}
 \renewcommand{\bibsep}{0.5em}
-\bibliographystyle{keckshort}
-\bibliographystylepub{keck}
+\bibliographystyle{Keck-References-Short}
+\bibliographystylepub{Keck-Publications}
 
 % Formatting Sections, etc.
 \titleformat*{\section}{\large\bfseries}

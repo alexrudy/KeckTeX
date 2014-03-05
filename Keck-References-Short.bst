@@ -958,7 +958,6 @@ FUNCTION {article}
     }
   if$
   new.block
-  format.note output
   fin.entry
 }
 FUNCTION {book}
@@ -1059,15 +1058,12 @@ FUNCTION {incollection}
       format.number.series output
       format.chapter.pages output
       new.sentence
-      format.publisher.address output
       format.edition output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.chapter.pages output
     }
   if$
-  new.block
-  format.note output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1078,24 +1074,14 @@ FUNCTION {inproceedings}
   date.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      end.quote.btitle
       format.bvolume output
       format.number.series output
       format.pages output
-      new.sentence
-      publisher empty$
-        { format.organization.address output }
-        { organization "organization" bibinfo.check output
-          format.publisher.address output
-        }
-      if$
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
     }
   if$
-  new.block
-  format.note output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1106,12 +1092,8 @@ FUNCTION {manual}
   format.date "year" output.check
   date.block
   format.btitle "title" output.check
-  organization address new.block.checkb
-  organization "organization" bibinfo.check output
-  address "address" bibinfo.check output
   format.edition output
   new.block
-  format.note output
   fin.entry
 }
 
@@ -1121,14 +1103,9 @@ FUNCTION {mastersthesis}
   author format.key output
   format.date "year" output.check
   date.block
-  format.btitle
-  "title" output.check
   new.block
   bbl.mthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
-  address "address" bibinfo.check output
-  new.block
-  format.note output
   fin.entry
 }
 
@@ -1172,14 +1149,6 @@ FUNCTION {proceedings}
   format.bvolume output
   format.number.series output
   new.sentence
-  publisher empty$
-    { format.organization.address output }
-    { organization "organization" bibinfo.check output
-      format.publisher.address output
-    }
-  if$
-  new.block
-  format.note output
   fin.entry
 }
 

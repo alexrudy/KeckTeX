@@ -1,12 +1,12 @@
-%% Driver file to produce keckshort.bst from merlin.mbs
+%% Driver file to produce keck.bst from merlin.mbs
 %% Generated with makebst, version 4.1 (2003/09/08)
-%% Produced on 2014/02/27 at 1:18
+%% Produced on 2014/02/27 at 0:59
 %% 
 \input docstrip
 
 \preamble
 ----------------------------------------
-*** Short Keck References ***
+*** Keck Proposals from the UC system ***
 
 \endpreamble
 
@@ -58,8 +58,8 @@ End of customized bst file
 % lang,%: Add language field
 %--------------------
 %ANNOTATIONS:
-    %: (def) No annotations
-% annote,%: Annotations
+%   %: (def) No annotations
+  annote,%: Annotations
 %--------------------
 %PRESENTATIONS:
     %: (def) Do not add presentation type
@@ -95,13 +95,13 @@ End of customized bst file
 % ed-au,%: Full, surname last
 % nm-revf,%: Full, surname first
 % nm-init,ed-au,%: Initials + surname
-  nm-rev,%: Surname + initials
+% nm-rev,%: Surname + initials
 % nm-rv,%: Surname + dotless initials
 % nm-rvvc,%: Surname + comma + spaceless initials
 % nm-rvx,%: Surname + pure initials
 % nm-rvcx,%: Surname + comma + pure initials
 % nm-rvv,%: Surname + spaceless initials
-% nm-rev1,%: Only first name reversed, initials
+  nm-rev1,%: Only first name reversed, initials
 % nm-revv1,%: First name reversed, with full names
 %--------------------
 %EDITOR NAMES IN COLLECTIONS (if author names reversed)
@@ -131,8 +131,8 @@ End of customized bst file
 %   %: (def) All authors
   nmlm,%: Limited authors
 %--------------------
-    x1,%: Maximum of 1 authors
-    m1,%: Minimum of 1 authors
+    x3,%: Maximum of 3 authors
+    m3,%: Minimum of 3 authors
 %AUTHORS IN CITATIONS:
     %: (def) One author et al
 % mcite,%: Some other truncation scheme
@@ -255,26 +255,26 @@ End of customized bst file
 %   %: (def) Year truncated
 %--------------------
 %TITLE OF ARTICLE:
-%   %: (def) Title plain
-% tit-it,%: Title italic
+%     %: (def) Title plain
+tit-it,%: Title italic
 % tit-qq,qt-s,%: Title and punctuation in single quotes
-  tit-qq,%: Title and punctuation in double quotes
+% tit-qq,%: Title and punctuation in double quotes
 % tit-qq,qt-g,%: Title and punctuation in guillemets
 % tit-qq,qt-s,qx,%: Title in single quotes
 % tit-qq,qx,%: Title in double quotes
 % tit-qq,qt-g,qx,%: Title in guillemets
 %--------------------
 %COLLECTION/PROCEEDINGS TITLES (if quoted title)
-  bt-qq,%: Quote collection and proceedings titles
+% bt-qq,%: Quote collection and proceedings titles
 %   %: (def) Collection and proceedings titles not in quotes
 %--------------------
 %CAPITALIZATION OF ARTICLE TITLE:
-    %: (def) Sentence style
-% atit-u,%: Title style
+%   %: (def) Sentence style
+  atit-u,%: Title style
 %--------------------
 %ARTICLE TITLE PRESENT:
-%    %: (def) Article title present
-jtit-x,%: No article title
+    %: (def) Article title present
+% jtit-x,%: No article title
 %--------------------
 %JOURNAL NAMES:
     %: (def) Periods in journal names
@@ -400,12 +400,12 @@ jttl-rm,%: Journal name normal
 % pre-edn,%: Publisher after edition
 %--------------------
 %ISBN NUMBER:
-%  isbn,%: Include ISBN
-s   %: (def) No ISBN
+% isbn,%: Include ISBN
+    %: (def) No ISBN
 %--------------------
 %ISSN NUMBER:
-%  issn,%: Include ISSN
-   %: (def) No ISSN
+% issn,%: Include ISSN
+    %: (def) No ISSN
 %--------------------
 %DOI NUMBER:
 % doi,%: Include DOI
@@ -468,12 +468,12 @@ s   %: (def) No ISBN
 % injnl,%: Add `in' before journal name
 %--------------------
 %FINAL PUNCTUATION:
-    %: (def) Period at very end
-% fin-bare,%: No period at end
+%   %: (def) Period at very end
+  fin-bare,%: No period at end
 %--------------------
 %ABBREVIATE WORD `PAGES' (if not using external language file)
-%   %: (def) `Page(s)'
-  pp,%: `Page' abbreviated
+    %: (def) `Page(s)'
+% pp,%: `Page' abbreviated
 % ppx,%: `Page' omitted
 %--------------------
 %ABBREVIATE WORD `EDITORS':
@@ -559,5 +559,5 @@ s   %: (def) No ISBN
 % plntx,%: Use only Plain TeX
 %--------------------
   }}
-\generate{\file{keckshort.bst}{\MBopts}}
+\generate{\file{Keck-Publications.bst}{\MBopts}}
 \endbatchfile
