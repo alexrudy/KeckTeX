@@ -31,20 +31,20 @@ mkdir -p $KECKBIBROOT
 if [[ -z $1 ]]; then
     echo "Copying .cls and .bst files to destination."
     mkdir -p $KECKTEX
-    cp $PWD/*.cls "$KECKTEX/"
+    cp -r $PWD/latex/ "$KECKTEX/"
     mkdir -p $KECKBIB
-    cp $PWD/*.bst "$KECKBIB/"
+    cp -r $PWD/bibtex/ "$KECKBIB/"
 else
     echo "Installing in development mode (symbolic links)."
     if [[ ! -d $KECKTEX ]]; then
         echo "Linking $PWD to $KECKTEX"
-        ln -s "$PWD" "$KECKTEX"
+        ln -s "$PWD/latex" "$KECKTEX"
     else
         echo "Skipping $KECKTEX, already exists."
     fi
     if [[ ! -d $KECKBIB ]]; then
         echo "Linking $PWD to $KECKBIB"
-        ln -s "$PWD" "$KECKBIB"
+        ln -s "$PWD/bibtex" "$KECKBIB"
     else
         echo "Skipping $KECKBIB, already exists."
     fi
