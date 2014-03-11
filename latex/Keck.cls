@@ -4,6 +4,7 @@
 \LoadClass[11pt]{article}
 
 %--- PACKAGES ---
+\RequirePackage[hidelinks]{hyperref}
 
 % Mathematics and Symbols
 \RequirePackage{amsmath} 
