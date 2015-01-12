@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{Keck}[2014/02/26 LaTeX styles for Keck Proposals]
 %--- CLASS ---
 \LoadClass[11pt]{article}
@@ -58,13 +58,25 @@
 \renewcommand{\floatpagefraction}{0.95} % require fuller float pages
 % N.B.: floatpagefraction MUST be less than topfraction !!
 \renewcommand{\dblfloatpagefraction}{0.7} % require fuller float pages
-
+\setlength{\multicolsep}{0pt}
 %--- GRAPHICS COMMANDS ---%
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 %---- XeLaTeX COMMANDS ---%
 \setromanfont[Ligatures=TeX]{Palatino}
 \setmonofont[Scale=MatchLowercase]{Monaco}
+
+\makeatletter
+\newlength\fake@f
+\newlength\fake@c
+\def\fakesc#1{%
+  \begingroup%
+  \xdef\fake@name{\csname\curr@fontshape/\f@size\endcsname}%
+  \fontsize{\fontdimen8\fake@name}{\baselineskip}\selectfont%
+  \uppercase{#1}%
+  \endgroup%
+}
+\makeatother
 
 \newcommand{\gotitle}{}
 \newcommand{\gopi}{}
@@ -74,11 +86,12 @@
 \newcommand{\gorequest}{}
 \newcommand{\goinstrument}{}
 \newcommand{\gosemester}{}
-
+\newcommand{\golfoot}{}
+\newcommand{\gorfoot}{}
 
 %--- HEADER INFORMATION ----         
 \pagestyle{fancy}
-\fancyhf{}
+% \fancyhf{}
 \AtBeginDocument{
 %Header Content
 \lhead{}
@@ -90,36 +103,72 @@
    \gopi (PI) & \goproposalnumber & \goinstrument & \gorequest
 \end{tabularx}
 \begin{centering}
-  \textbf{\gotitle}
+ \gotitle
 \end{centering}
 }
 \rhead{}
 
+\fancypagestyle{firstpage}{%
+% \fancyhf{} % clear all header and footer fields
+\lhead{}
+\chead{
+\newcolumntype{R}{>{\raggedleft}X}
+\newcolumntype{C}{>{\centering}X}
+\newcolumntype{L}{>{\raggedright}X}
+\begin{tabularx}{\textwidth}{LCCR}
+   \gopi (PI) & \goproposalnumber & \goinstrument & \gorequest
+\end{tabularx}
+\begin{centering}
+  \textbf{\uline{\gotitle}}
+\end{centering}
+}
+\rhead{}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\lfoot{\golfoot}
+\rfoot{\gorfoot}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+}
 
+\fancypagestyle{nohead}{%
+% \fancyhf{} % clear all header and footer fields
+\lhead{}
+\chead{}
+\rhead{}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\lfoot{\golfoot}
+\rfoot{\gorfoot}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 }
 
 %Footer Content
 \cfoot{\thepage\ of \pageref{LastPage}}
-\lfoot{}
-\rfoot{}
+\lfoot{\golfoot}
+\rfoot{\gorfoot}
 % Header
 \headheight 40 pt
 \headsep 10pt
 \renewcommand{\headrulewidth}{0 pt}
 \renewcommand{\footrulewidth}{0 pt}
 
-\DeclareOption{edit}{\rfoot{\color{red}Typset with \XeLaTeX\ \today\ at \currenttime}\lfoot{\color{red}Prepared by \goauthor}}
+\DeclareOption{edit}{
+  \renewcommand{\gorfoot}{\color{red}Typset with \XeLaTeX\ \today\ at \currenttime}
+  \renewcommand{\golfoot}{\color{red}DRAFT Prepared by \goauthor}
+}
 \ProcessOptions
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{5pt}
 
 \setcitestyle{comma,aysep={}}
 \newcites{pub}{Proposer Publications}
+\newcites{ref}{References}
 \renewcommand{\bibsection}{}
 \renewcommand{\bibfont}{\small}
-\renewcommand{\bibsep}{0.5em}
+\renewcommand{\bibsep}{0.1em}
 \bibliographystyle{Keck-References-Short}
+\bibliographystyleref{Keck-References-Short}
 \bibliographystylepub{Keck-Publications}
 
 % Formatting Sections, etc.
