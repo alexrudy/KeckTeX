@@ -11,13 +11,15 @@ KECKTEX = $(TEXMFPATH)/tex/latex/keck
 KECKBIB = $(TEXMFPATH)/bibtex/bst/keck
 PWD = $(shell pwd)
 
-.PHONY: info install dirs develop uninstall
+.PHONY: info install dirs develop uninstall files
+
+files :: $(wildcard $(PWD)/latex/*.cls) $(wildcard $(PWD)/bibtex/*.bst)
 
 info:
 	@echo "Installing KeckTeX class and bibliography styles."
 	@echo 'Install directory: TEXMFPATH="'$(TEXMFPATH)'"'
 
-install: info dirs
+install: info dirs files
 	@echo "Installing..."
 	cp -r $(PWD)/latex/ $(KECKTEX)/
 	cp -r $(PWD)/bibtex/ $(KECKBIB)/
@@ -27,7 +29,7 @@ dirs:
 	mkdir -p $(KECKTEX)
 	mkdir -p $(KECKBIB)
 	
-develop: info
+develop: info files
 	@echo "Linking directories..."
 	@mkdir -p "$(TEXMFPATH)/tex/latex/"
 	@mkdir -p "$(TEXMFPATH)/bibtex/bst/"
