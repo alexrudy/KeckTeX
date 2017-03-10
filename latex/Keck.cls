@@ -103,7 +103,7 @@
    \gopi (PI) & \goproposalnumber & \goinstrument & \gorequest
 \end{tabularx}
 \begin{centering}
- \gotitle
+ \emph{\gotitle}
 \end{centering}
 }
 \rhead{}
